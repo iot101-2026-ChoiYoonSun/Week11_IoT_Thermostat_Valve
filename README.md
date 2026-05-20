@@ -2,15 +2,15 @@
 
 ## 프로젝트 영상
 
-https://github.com/user-attachments/assets/a1321ff8-60d2-4039-8729-db3cd1c56a13
+https://github.com/user-attachments/assets/c7a9325d-1403-4b20-9778-f7e5c77be32d
 
 ## 프로젝트 소개
-이 프로젝트는 ESP32 보드와 MQTT 통신을 이용하여 실내 온도를 실시간으로 측정하고, Cloud Intelligence을 통해 설정된 목표 온도에 맞춰 자동으로 난방 밸브(릴레이)를 개폐하는 스마트 난방 제어 시스템입니다.
+이 프로젝트는 ESP32 보드와 MQTT 통신을 이용하여 실내 온도를 실시간으로 측정하고, Cloud Intelligence을 통해 설정된 목표 온도에 맞춰 자동으로 난방 밸브를 개폐하는 스마트 난방 제어 시스템입니다.
 
-Python 애플리케이션 서버(io7app)에서 각 기기들을 제어하는 IoT 플랫폼의 아키텍처가 구현 되어있습니다.
+Python 애플리케이션 서버에서 각 기기들을 제어하는 IoT 플랫폼의 아키텍처가 구현 되어있습니다.
 
 ## 시스템 주요 기능
-* **온도 측정 (Thermostat):** DHT22 센서를 통해 현재 온도를 측정하여 주기적으로 MQTT 브로커로 Publish합니다. 벨브 조절 시 기준 온도 조절 가능합니다.
+* **온도 측정 (Thermostat):** DHT22 센서를 통해 현재 온도를 측정하여 주기적으로 MQTT 브로커로 Publish합니다.
 * **자동 밸브 제어 (Valve):** 클라우드 서버의 명령을 수신하여 릴레이 모듈을 구동해 난방 밸브를 제어합니다.
 * **안전 제어:** 잦은 밸브 작동을 방지하기 위해 목표 온도 기준 ±0.5도의 여유 구간을 두어 제어하는 로직이 Python 서버에 구현 되어있습니다.
 
@@ -44,7 +44,7 @@ state = {"valve": "off"}
 @app.on_event("thermo1", "status")
 def thermostat(data):
     temp = data["temperature"]
-    target = data.get("target", 22.0)
+    target = data.get("target", 25.0)
     
     desired = (
         "on" if temp < target - 0.5
