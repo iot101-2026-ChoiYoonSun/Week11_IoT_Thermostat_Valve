@@ -65,4 +65,4 @@ if __name__ == "__main__":
 1. Docker Compose를 통해 io7-platform-cloud 시스템을 구동합니다 (docker compose up -d).
 2. ESP32 보드를 팩토리 리셋(Boot 버튼 5초) 후 Captive Portal에서 기기 아이디(thermo1, valve1)와 PC 브로커 IP를 등록합니다.
 3. 파이썬 앱 서버를 실행하고 로그를 모니터링합니다 (docker logs -f io7app).
-4. 온도 센서(DHT22)에 입김을 불어 온도를 상승시키면 목표 온도 도달 시 릴레이 모듈이 차단(off)되는 것을 확인할 수 있습니다.
+4. 온도 센서(DHT22)에 온도를 상승시키면 목표 온도 도달 시 릴레이 모듈이 차단(off)되는 것을 확인할 수 있습니다.
